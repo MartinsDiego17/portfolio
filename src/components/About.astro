@@ -1,0 +1,56 @@
+---
+import TitleSection from "./TitleSection.astro";
+---
+
+<section id="about" class="about-me flex justify-center w-full mt-50">
+    <article class="w-[45vw] flex place-items-center flex-col">
+        <TitleSection title="Acerca de mí" />
+        <p class="relative w-3/5 text-[#ccc] text-center mt-10">
+            Desarrollador de software especializado en <span>React</span> y <span
+                >Node</span
+            >, con más de
+            <span>2 años de experiencia</span> diseñando y desarrollando sistemas
+            escalables, eficientes y optimizados para la mejor experiencia de usuario.
+            Apasionado de la <span>creación de soluciones digitales</span>, con
+            fuerte enfoque en <span>aprendizaje continuo</span>, atención al
+            detalle, comunicación efectiva y trabajo colaborativo en equipos
+            multidisciplinarios.
+        </p>
+    </article>
+</section>
+
+<style>
+    p span {
+        color: var(--normal);
+    }
+    p::before {
+        content: "";
+        position: absolute;
+        top: 80%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 150%;
+        height: 100%;
+        border-radius: 50%;
+        background: radial-gradient(
+            circle at center,
+            var(--creme),
+            var(--normal) 100%
+        );
+        filter: blur(100px);
+        z-index: -1;
+        opacity: 0.3;
+    }
+    @media (max-width: 430px) {
+        #about {
+            max-height: fit-content !important;
+            height: fit-content;
+        }
+        #about article {    
+            width: 90vw;
+        }
+        #about article p {
+            width: 70%  ;
+        }
+    }
+</style>

@@ -1,0 +1,25 @@
+---
+import linkedin_icon from "./icons/redes/linkedin.svg";
+import github_icon from "./icons/redes/github-icon.svg";
+---
+
+<footer class="py-10 w-full flex justify-center gap-x-5">
+    <a
+        href="https://www.linkedin.com/in/diego-martins-563954278/"
+        target="_blank"
+    >
+        <img src={linkedin_icon.src} width="50" height="50" />
+    </a>
+    <a href="https://github.com/MartinsDiego17" target="_blank">
+        <img src={github_icon.src} width="50" height="50" />
+    </a>
+</footer>
+
+<style>
+    a {
+        transition: .3s;
+    }
+    a:hover {
+        transform: translateY(-3px);
+    }
+</style>

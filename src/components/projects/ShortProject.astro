@@ -1,0 +1,153 @@
+---
+const {
+    id,
+    img,
+    title,
+    description,
+    stack,
+    type,
+    deploy_link,
+    variant,
+    full_description,
+} = Astro.props;
+import Card from "../Card.astro";
+import Link from "../icons/Link.astro";
+import WorldIcon from "../icons/WorldIcon.astro";
+---
+
+<Card className="short">
+    <img src={img} alt={title} class="mb-[3vh]" />
+    <div class="px-[1em] pb-10">
+        <h2 class="text-(--normal) flex place-items-center gap-x-2">
+            <span>{title}</span>
+            {
+                deploy_link && (
+                    <span class="text-blue-400">
+                        <WorldIcon />
+                    </span>
+                )
+            }
+        </h2>
+        <p class="text-[#ccc] leading-5 text-[15px] text-balance">
+            {description}
+        </p>
+        <div class="mt-5 flex gap-x-3">
+            {
+                stack.map((tech: string) => (
+                    <span class="text-(--normal) text-[12px]">{tech}</span>
+                ))
+            }
+        </div>
+    </div>
+    <div class="details-project">
+        <p class="type-project">{type}</p>
+        <p class="text-center text-[#ccc] text-[13px] pt-7">
+            {full_description}
+        </p>
+        {
+            deploy_link && (
+                <div class="w-full flex justify-center mt-5">
+                    <a class="button-site" href={deploy_link} target="_blank">
+                        <span>
+                            <Link />
+                        </span>
+                        <span>Visitar sitio</span>
+                    </a>
+                </div>
+            )
+        }
+    </div>
+</Card>
+
+<style is:global>
+    .card.short .details-project {
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        top: 0;
+        left: 0;
+        background: rgba(0, 0, 0, 0.8);
+        display: none;
+        transition: 0.5s;
+        backdrop-filter: blur(5px);
+        border-radius: 1em;
+        padding: 1em;
+        animation: reveal_details 0.5s ease-in-out both;
+    }
+    @keyframes reveal_details {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+    .card:hover .details-project {
+        display: block;
+    }
+    .type-project {
+        background-color: #222;
+        color: white;
+        margin: 0 auto;
+        width: fit-content;
+        padding: 3px 10px;
+        font-size: 13px;
+        border-radius: 50px;
+        animation: show_type 0.5s ease-in-out;
+        box-shadow: 0px 0px 50px #444;
+    }
+
+    @keyframes show_type {
+        0% {
+            margin-left: -5%;
+            margin-top: -5%;
+        }
+        100% {
+            margin-left: 0;
+            margin-top: 0;
+        }
+    }
+
+    @keyframes show_type_mobile {
+        0% {
+            margin-top: -5%;
+        }
+        100% {
+            margin-top: 0;
+        }
+    }
+
+    .button-site {
+        background-color: var(--normal);
+        border-radius: 50px;
+        display: flex;
+        font-size: 13px;
+        padding: 10px 20px;
+        align-items: center;
+        cursor: pointer;
+        transition: 0.2s;
+        column-gap: 10px;
+        box-shadow: 0px 0px 50px var(--normal);
+        &:hover {
+            transform: translateY(10px);
+            box-shadow: 0px 0px 0px transparent;
+        }
+    }
+    .button-site svg {
+        width: 15px;
+        height: 15px;
+    }
+    .projects-grid h2 svg {
+        width: 15px;
+        height: 15px;
+    }
+    @media (max-width: 430px) {
+        .card.short p {
+            font-size: 1em;
+            text-wrap: balance;
+        }
+        .type-project {
+            animation: show_type_mobile 0.5s ease-in-out;
+        }
+    }
+</style>

@@ -1,0 +1,151 @@
+---
+import Card from "../Card.astro";
+import { experiences } from "../../data/experience";
+import TitleSection from "../TitleSection.astro";
+const first_experience = experiences[0];
+const second_experience = experiences[1];
+---
+
+<section
+    id="experience"
+    class="justify-center min-h-screen w-full flex flex-col place-items-center"
+>
+    <TitleSection title="Experiencia laboral" />
+    <p class="open flex justify-center place-items-center gap-x-3">
+        <span>Open to work</span>
+        <span class="ticket-open"></span>
+    </p>
+    <Card min_width={true}>
+        <h2 class="flex place-items-center gap-x-5 text-[#ccc] text-xl">
+            <span class="text-white font-semibold">
+                {first_experience.companyName}
+            </span>{" "}
+            <span class="font-medium text-[17px]"
+                >{first_experience.jobTitle}</span
+            >
+        </h2>
+        <h3 class="text-white mt-1">
+            {first_experience.startDate} - {
+                first_experience.endDate
+                    ? first_experience.endDate
+                    : "Actualmente"
+            }
+        </h3>
+        <p class="description text-[#aaa] mt-4 w-[90%] font-medium">
+            Durante mi experiencia en esta empresa, fortalecí mis habilidades en
+            <span>comunicación</span>, atención al cliente y <span
+                >manejo de puntos de venta</span
+            >. Asimismo, optimicé mi <span
+                >capacidad de comunicarme en otros idiomas</span
+            > gracias a la interacción constante con pasajeros en un entorno aeroportuario.
+        </p>
+    </Card>
+    <Card min_width={true}>
+        <h2 class="flex place-items-center gap-x-5 text-[#ccc] text-xl">
+            <span class="text-white font-semibold">
+                {second_experience.companyName}
+            </span>{" "}
+            <span class="font-medium text-[17px]"
+                >{second_experience.jobTitle}</span
+            >
+        </h2>
+        <h3 class="text-white mt-1">
+            {second_experience.startDate} - {
+                second_experience.endDate
+                    ? second_experience.endDate
+                    : "Actualmente"
+            }
+        </h3>
+        <p class="description text-[#aaa] mt-4 w-[90%] font-medium">
+            Durante mi tiempo en La Barra Boulevard, desarrollé <span
+                >habilidades en atención al cliente</span
+            >, servicio personalizado y trabajo en equipo , asegurando <span
+                >experiencias positivas para los clientes</span
+            > y manteniendo un <span>ambiente organizado y eficiente</span> en el
+            servicio de alimentos y bebidas.
+        </p>
+    </Card>
+</section>
+
+<style is:global>
+    .open {
+        border: solid 1px rgb(79, 196, 95);
+        color: rgb(79, 196, 95);
+        font-size: 13px;
+        background-color: rgba(79, 196, 95, 0.1);
+        border-radius: 50px;
+        padding: 5px 25px;
+        margin-top: 1%;
+        margin-bottom: 3%;
+    }
+    .description span {
+        color: var(--normal);
+    }
+    .card .skills {
+        opacity: 0.5;
+        transition: 0.5s;
+    }
+    .card:hover .skills {
+        opacity: 1;
+    }
+    .ticket-open {
+        width: 10px;
+        height: 10px;
+        display: block;
+        background-color: rgb(79, 196, 95);
+        border-radius: 50%;
+        position: relative;
+        z-index: 1;
+    }
+
+    .ticket-open::before {
+        position: absolute;
+        content: "";
+        width: 10px;
+        height: 10px;
+        background-color: rgba(79, 196, 95, 0.5);
+        border-radius: 50%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%) scale(1);
+        z-index: 0;
+        animation: shadow-open-work 1s ease-in-out infinite both;
+    }
+
+    @keyframes shadow-open-work {
+        0% {
+            transform: translate(-50%, -50%) scale(1);
+            opacity: 1;
+        }
+        100% {
+            transform: translate(-50%, -50%) scale(2);
+            opacity: 0;
+        }
+    }
+
+    @media (max-width: 430px) {
+        .open {
+            margin-bottom: 5vh;
+        }
+        #experience .card h2 {
+            display: block;
+        }
+        #experience .card h2 span:first-child {
+            display: block;
+            width: 100%;
+        }
+        #experience .card h2 span:last-child {
+            display: block;
+            margin-bottom: 2vh;
+            width: 100%;
+            text-wrap: pretty;
+        }
+        #experience .card p {
+            width: 100%;
+        }
+        #experience {
+            margin-bottom: 20vh;
+        }
+    }
+</style>
+

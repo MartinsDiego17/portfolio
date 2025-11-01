@@ -1,0 +1,53 @@
+---
+import { projects } from "../data/project";
+import ProjectCard from "./projects/ProjectCard.astro";
+import TitleSection from "./TitleSection.astro";
+---
+
+<section
+    id="projects"
+    class="flex justify-center place-items-center flex-col w-screen"
+>
+    <TitleSection title="Proyectos recientes" />
+    <article class="projects-grid w-[45vw] mt-10">
+        {
+            projects.map((project, index) => {
+                let variant = "";
+                if (index === 1 || index === 2) variant = "large";
+                else variant = "short";
+                const {
+                    id,
+                    img,
+                    img_mobile,
+                    title,
+                    description,
+                    stack,
+                    type,
+                    deploy_link,
+                } = project;
+
+                return (
+                    <ProjectCard
+                        id={id}
+                        img={img}
+                        img_mobile={img_mobile}
+                        title={title}
+                        description={description}
+                        stack={stack}
+                        type={type}
+                        deploy_link={deploy_link}
+                        variant={variant}
+                    />
+                );
+            })
+        }
+    </article>
+</section>
+
+<style>
+    .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+    }
+</style>

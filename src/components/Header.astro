@@ -1,0 +1,67 @@
+---
+import Profile from "./header/Profile.astro";
+import Sections from "./header/Sections.astro";
+---
+
+<header class="w-full py-6">
+    <section class="items-nav w-[45vw] flex justify-between">
+        <Profile />
+        <Sections />
+    </section>
+</header>
+
+<script>
+    import { items_nav } from "../data/items_nav";
+    import { scroll_home } from "../utils/header/scroll_home";
+    document.getElementById("home-button")?.addEventListener("click", () => {
+        scroll_home();
+    });
+
+    items_nav.forEach((item) => {
+        if (item.name !== "Inicio") {
+            const current_item = document.getElementById(item.id);
+            current_item?.addEventListener("click", () => {
+                document.getElementById(item.id_section || "")?.scrollIntoView({
+                    behavior: "smooth",
+                    block: "center",
+                });
+            });
+        }
+    });
+</script>
+
+<style is:global>
+    header {
+        box-sizing: border-box;
+        position: fixed;
+        top: 0;
+        animation: show-header linear both;
+        animation-timeline: scroll(root block);
+        animation-range: 100px 300px;
+        z-index: 20;
+    }
+
+    @keyframes show-header {
+        100% {
+            backdrop-filter: blur(10px);
+            padding-top: 30px;
+            padding-bottom: 30px;
+        }
+    }
+    .items-nav {
+        margin: 0 auto;
+    }
+
+    @media (max-width: 430px) {
+        header .items-nav {
+            width: 80vw;
+        }
+        header .elements-nav {
+            display: none;
+        }
+        header .profile-container {
+            margin: 0 auto;
+        }
+    }
+
+</style>

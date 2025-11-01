@@ -1,0 +1,140 @@
+---
+import ArrowRight from "./icons/ArrowRight.astro";
+import Download from "./icons/Download.astro";
+---
+
+<section
+    class="w-full min-h-fit flex justify-center place-items-center py-[30vh] text-white"
+>
+    <div class="home-container flex flex-col items-center justify-center">
+        <a href="../../public/cv/curriculum.pdf" download="">
+            <button
+                class="gap-x-1 items-center flex cursor-pointer button-cv font-medium"
+            >
+                <span><Download /></span>
+                <span>Descargar CV</span>
+            </button>
+        </a>
+
+        <h2 class="text-[4rem] text-white">Software Developer</h2>
+        <h1 class="text-[5rem]">Diego Martins</h1>
+        <p class="tracking-wider text-[#aaa] mb-8">Full Stack React & Node</p>
+
+        <div class="flex gap-x-5">
+            <a
+                href="https://www.linkedin.com/in/diego-martins-563954278/"
+                target="_blank"
+            >
+                <button class="button-link-home">
+                    <span>Linkedin</span>
+                    <span><ArrowRight /></span>
+                </button>
+            </a>
+            <a href="https://github.com/MartinsDiego17" target="_blank">
+                <button class="button-link-home">
+                    <span>Github</span>
+                    <span><ArrowRight /></span>
+                </button>
+            </a>
+        </div>
+    </div>
+</section>
+
+<style>
+    h2 {
+        background: linear-gradient(90deg, var(--normal), var(--creme));
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+        color: var(--normal);
+    }
+    .button-cv {
+        transition: 0.2s;
+        background: linear-gradient(to right, #222, #111);
+        border: solid 1px #333;
+        opacity: 0.8;
+        color: #ccc;
+    }
+
+    .button-cv:hover {
+        opacity: 1;
+        box-shadow: 7px 5px 100px #222;
+        border-color: #222;
+        color: #ddd;
+    }
+
+    .button-cv svg,
+    .button-link-home svg {
+        width: 20px;
+        height: 20px;
+    }
+
+    .button-link-home {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        background-color: var(--normal);
+        padding-right: 32px;
+        transition: 0.2s;
+        cursor: pointer;
+        padding-left: 32px;
+        opacity: 0.8;
+        &:hover {
+            opacity: 1;
+        }
+    }
+
+    .home-container {
+        position: relative;
+        animation-name: show-home;
+        animation-duration: 1.5s;
+        animation-timing-function: ease-in-out;
+        z-index: 1;
+    }
+
+    .home-container::before {
+        content: "";
+        position: absolute;
+        top: 80%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+        height: 100%;
+        border-radius: 50%;
+        background: radial-gradient(
+            circle at center,
+            var(--creme),
+            var(--creme) 100%
+        );
+        filter: blur(100px);
+        z-index: -1;
+        opacity: 0.1;
+    }
+
+    @keyframes show-home {
+        0% {
+            opacity: 0;
+            transform: translateX(-50px);
+        }
+        100% {
+            opacity: 1;
+            transform: translateX(0px);
+        }
+    }
+    @media (max-width: 430px) {
+        section {
+            padding: 20vh;
+            line-height: 1.4;
+            height: 100vh;
+        }
+        h2,
+        h1 {
+            text-align: center;
+        }
+        h2 {
+            font-size: 3rem;
+        }
+        h1 {
+            font-size: 4rem;
+        }
+    }
+</style>

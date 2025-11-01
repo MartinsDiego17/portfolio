@@ -1,0 +1,30 @@
+---
+import { items_nav } from "../../data/items_nav";
+---
+
+<article class="elements-nav flex items-center">
+    <ul class="flex gap-x-10 items-center text-white">
+        {
+            items_nav.map((item) => (
+                <li>
+                    <button id={item.id}>{item.name}</button>
+                </li>
+            ))
+        }
+    </ul>
+</article>
+
+<style>
+    li {
+        cursor: pointer !important;
+        transition: 0.2s;
+        &:hover {
+            color: var(--normal);
+        }
+    }
+
+    li button {
+        cursor: pointer;
+        padding: 0;
+    }
+</style>

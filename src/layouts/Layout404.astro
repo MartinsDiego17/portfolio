@@ -1,0 +1,40 @@
+---
+import "@fontsource/questrial";
+import "../styles/global.css";
+---
+
+</style>
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{"404 - Página no encontrada / DMTech"}</title>
+	</head>
+	<body>
+		<slot />
+	</body>
+</html>
+
+<style is:global>
+	:root {
+		--ultra-dark: #00000f;
+		--dark: #17002f;
+		--semidark: #2d005e;
+		--normal: #ff0059;
+		--creme: #c292f8;
+	}
+
+	body {
+		margin: 0;
+        padding: 0;
+        max-height: 100vh;
+		font-family: "Questrial", sans-serif;
+		background-color: var(--ultra-dark);
+		background-image: url(../../public/pics/body.webp);
+		overflow: hidden;
+	}
+
+</style>

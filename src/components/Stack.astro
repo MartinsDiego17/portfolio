@@ -1,0 +1,33 @@
+---
+import { techs } from "../data/tech";
+import Tech from "./Tech.astro";
+import TitleSection from "./TitleSection.astro";
+---
+
+<section id="stack" class="my-50 mb-0 pb-50 flex place-items-center flex-col">
+    <article>
+        <TitleSection title="Stack" />
+        <div class="stack-container gap-7 mt-20">
+            {
+                techs.map((tech) => {
+                    const { name, icon, color } = tech;
+                    return <Tech name={name} icon={icon} color={color} />;
+                })
+            }
+        </div>
+    </article>
+</section>
+
+<style>
+    .stack-container {
+        width: 45vw;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+    }
+    @media (max-width: 430px) {
+        .stack-container {
+            width: 90vw;
+        }
+    }
+</style>

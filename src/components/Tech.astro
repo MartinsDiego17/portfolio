@@ -1,0 +1,32 @@
+---
+const { name, icon, color } = Astro.props;
+---
+
+<div
+  class="tech-item relative w-fit px-4 py-4 rounded-3xl border-2 transition-all duration-1000 border-transparent flex flex-col items-center"
+  style={`--tech-color: ${color}; background-color: ${color}30;`}
+>
+  <span
+    class="rounded-2xl border-2 px-4 py-2 text-[17px] tech-name absolute -top-6 text-sm font-medium text-white opacity-0 transition-all duration-1000"
+  >
+    {name}
+  </span>
+
+  <img src={icon} alt={name} width="40" height="40" />
+</div>
+
+<style>
+  .tech-item:hover {
+    border: solid 2px var(--tech-color);
+    box-shadow: 0px 0px 150px var(--tech-color);
+  }
+
+  .tech-item:hover .tech-name {
+    opacity: 1;
+    transform: translateY(-30px);
+    color: var(--tech-color);
+    border: solid 2px var(--tech-color);
+    backdrop-filter: blur(10px);
+    animation-fill-mode: forwards;
+  }
+</style>

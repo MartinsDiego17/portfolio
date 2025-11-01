@@ -1,0 +1,90 @@
+---
+import LargeProject from "./LargeProject.astro";
+import ShortProject from "./ShortProject.astro";
+
+const { id, img, img_mobile, title, description, stack, type, deploy_link, variant } =
+    Astro.props;
+let sliced_description = description.slice(0, 90);
+
+---
+
+{
+    variant === "short" && (
+        <ShortProject
+            id={id}
+            img={img}
+            title={title}
+            description={sliced_description}
+            stack={stack}
+            type={type}
+            deploy_link={deploy_link}
+            variant={variant}
+            full_description={description}
+        />
+    )
+}
+
+{
+    variant === "large" && (
+        <LargeProject
+            img={img}
+            title={title}
+            description={description}
+            stack={stack}
+            type={type}
+            deploy_link={deploy_link}
+            variant={variant}
+        />
+        <div class="mobile-project-card">
+        <ShortProject
+            id={id}
+            img={img_mobile}
+            title={title}
+            description={sliced_description}
+            stack={stack}
+            type={type}
+            deploy_link={deploy_link}
+            variant={"short"}
+            full_description={description}
+        />
+        </div>
+    )
+}
+
+<style is:global>
+    .projects-grid .card {
+        width: 100%;
+        margin: 0;
+        padding: 0;
+    }
+    .card img {
+        border-radius: 1em;
+    }
+    .card.large {
+        grid-column: span 2;
+    }
+    .projects-grid .card {
+        height: 100%;
+    }
+    .mobile-project-card {
+        display: none;
+    }
+    @media (max-width: 430px) {
+        .mobile-project-card {
+            display: block;
+        }
+        #projects {
+            min-height: fit-content;
+        }
+
+        #projects .projects-grid {
+            grid-template-columns: 1fr;
+            margin: 0 auto;
+            row-gap: 10vh;
+            width: 90vw;
+        }
+        .card.large {
+            display: none;
+        }
+    }
+</style>
