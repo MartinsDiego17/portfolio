@@ -4,7 +4,10 @@ import Tech from "./Tech.astro";
 import TitleSection from "./TitleSection.astro";
 ---
 
-<section id="stack" class="my-50 mt-50 mb-20 py-20 max-h-fit flex place-items-center flex-col">
+<section
+    id="stack"
+    class="my-50 mt-50 mb-20 py-20 max-h-fit flex place-items-center flex-col"
+>
     <article>
         <TitleSection title="Stack" />
         <div class="stack-container gap-7 mt-20">
@@ -26,8 +29,24 @@ import TitleSection from "./TitleSection.astro";
         justify-content: center;
     }
     @media (max-width: 430px) {
+        #stack {
+            height: fit-content;
+        }
         .stack-container {
             width: 90vw;
+        }
+    }
+    @media (min-width: 431px) and (max-width: 1024px) {
+        .stack-container {
+            width: 80vw;
+        }
+        #stack {
+            margin-top: 20vh;
+        }
+    }
+    @media (min-width: 1025px) and (max-width: 1366px) {
+        .stack-container {
+            width: 60vw;
         }
     }
 </style>

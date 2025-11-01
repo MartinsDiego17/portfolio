@@ -55,4 +55,19 @@ import TitleSection from "./TitleSection.astro";
             padding-top: 5vh;
         }
     }
+    @media (min-width: 431px) and (max-width: 1024px) {
+        #projects {
+            height: fit-content;
+            margin-bottom: 20vh;
+            margin-top: 20vh;
+        }
+        .projects-grid {
+            width: 80vw;
+        }
+    }
+    @media (min-width: 1025px) and (max-width: 1366px) {
+        .projects-grid {
+            width: 60vw;
+        }
+    }
 </style>

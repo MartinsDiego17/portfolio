@@ -124,6 +124,9 @@ const second_experience = experiences[1];
     }
 
     @media (max-width: 430px) {
+        #experience {
+            margin-top: 20vh;
+        }
         .open {
             margin-bottom: 5vh;
         }
@@ -142,6 +145,23 @@ const second_experience = experiences[1];
         }
         #experience .card p {
             width: 100%;
+        }
+        #experience {
+            margin-bottom: 20vh;
+        }
+    }
+    @media (min-width: 431px) and (max-width: 1024px) {
+        #experience {
+            min-height: fit-content;
+            height: fit-content;
+        }
+        #experience .card {
+            width: 80vw;
+        }
+    }
+    @media (min-width: 1025px) and (max-width: 1366px) {
+        #experience .card {
+            width: 60vw;
         }
         #experience {
             margin-bottom: 20vh;

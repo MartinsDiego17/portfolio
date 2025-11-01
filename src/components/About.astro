@@ -54,4 +54,25 @@ import TitleSection from "./TitleSection.astro";
             width: 70%  ;
         }
     }
+    @media (min-width: 431px) and (max-width: 1024px) {
+        #about {
+            padding: 0;
+            height: fit-content;
+            width: 80vw;
+            margin: 0 auto;
+        }
+        #about p {
+            width: 80vw;
+        }
+    }
+        @media (min-width: 1025px) and (max-width: 1366px) {
+        #about {
+            width: 60vw;
+            margin: 0 auto;
+            margin-top: 30vh;
+        }
+        #about p {
+            width: 60vw;
+        }
+    }
 </style>

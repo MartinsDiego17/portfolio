@@ -3,3 +3,11 @@ const { title } = Astro.props;
 ---
 
 <h1 class="text-[#ccc] font-bold text-4xl text-center">{title}</h1>
+
+<style>
+    @media (min-width: 431px) and (max-width: 1024px) {
+        h1 {
+            font-size: 3em;
+        }
+    }
+</style>

@@ -52,10 +52,7 @@ import Sections from "./header/Sections.astro";
         margin: 0 auto;
     }
 
-    @media (max-width: 430px) {
-        header .items-nav {
-            width: 80vw;
-        }
+    @media (max-width: 860px) {
         header .elements-nav {
             display: none;
         }
@@ -64,4 +61,19 @@ import Sections from "./header/Sections.astro";
         }
     }
 
+    @media (max-width: 430px) {
+        header .items-nav {
+            width: 80vw;
+        }
+    }
+    @media (min-width: 431px) and (max-width: 1024px) {
+        header .items-nav {
+            width: 80vw;
+        }
+    }
+    @media (min-width: 1025px) and (max-width: 1366px) {
+        header .items-nav {
+            width: 60vw;
+        }
+    }
 </style>
