@@ -7,6 +7,9 @@ import WorldIcon from "../icons/WorldIcon.astro";
 ---
 
 <Card className="large">
+    <div class="type-project-div pt-2 flex w-full justify-center">
+        <p class="type-project-large">{type}</p>
+    </div>
     <section class="flex">
         <article
             class="pl-[2em] flex flex-col justify-center details-large-card"
@@ -73,5 +76,32 @@ import WorldIcon from "../icons/WorldIcon.astro";
     .card.large:hover .button-site {
         opacity: 1;
         transform: translateX(10px);
+    }
+    .type-project-div p {
+        background-color: #222;
+        color: white;
+        width: fit-content;
+        top: 0;
+        padding: 3px 10px;
+        font-size: 13px;
+        border-radius: 50px;
+        box-shadow: 0px 0px 50px #444;
+        animation: show-type-large .5s ease-in-out;
+    }
+    .type-project-div {
+        display: none;
+        position: absolute;
+    }
+    .card.large:hover .type-project-div {
+        display: flex;
+    }
+
+    @keyframes show-type-large {
+        0% {
+            margin-top: -1%;
+        } 
+        100% {
+            margin-top: 0;
+        }
     }
 </style>

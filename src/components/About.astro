@@ -2,8 +2,8 @@
 import TitleSection from "./TitleSection.astro";
 ---
 
-<section id="about" class="about-me flex justify-center w-full mt-50">
-    <article class="w-[45vw] flex place-items-center flex-col">
+<section id="about" class="max-h-fit  py-20 about-me flex justify-center w-full mt-50">
+    <article class="w-[45vw] h-fit flex place-items-center flex-col">
         <TitleSection title="Acerca de mí" />
         <p class="relative w-3/5 text-[#ccc] text-center mt-10">
             Desarrollador de software especializado en <span>React</span> y <span
@@ -41,6 +41,7 @@ import TitleSection from "./TitleSection.astro";
         z-index: -1;
         opacity: 0.3;
     }
+
     @media (max-width: 430px) {
         #about {
             max-height: fit-content !important;
