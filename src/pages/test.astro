@@ -1,6 +1,6 @@
 ---
 import Layout from "../layouts/Layout.astro";
-import yourhiring from "../../public/pics/projects/yourhiring_mobile.jpeg";
+import yourhiring from "../../public/pics/projects/zaporta_desktop.jpeg";
 ---
 
 <Layout title="test projects">
@@ -10,12 +10,19 @@ import yourhiring from "../../public/pics/projects/yourhiring_mobile.jpeg";
 </Layout>
 
 <style>
+
+    :root {
+        --light: white;
+        --dark: red;
+    }
     div {
-        background: linear-gradient(#e8f9ff, #004f6b);
+        background: linear-gradient(var(--light), var(--dark));
         padding-top: 30px;
     }
     img {
-        box-shadow: 0px 50px 200px #004f6b;
+        width: 80vw;
+        height: 80vh;
+        box-shadow: 0px 50px 200px var(--dark);
         border-radius: 20px;
     }
 </style>
