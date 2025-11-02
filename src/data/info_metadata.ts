@@ -6,6 +6,6 @@ export const info_metadata : Metadata = {
     author: "Diego Martins",
     ogTitle: "DMGTech",
     ogDescription: desc,
-    ogImage: "https://github.com/MartinsDiego17/portfolio/blob/main/public/pics/mockup.jpg?raw=true",
+    ogImage: "https://github.com/MartinsDiego17/portfolio/blob/main/public/images/mockup.jpg?raw=true",
     ogType: "website"
 };
